@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Theme/app_colors.dart';
 import 'package:flutter_application_1/screen/main_screen.dart';
 import 'package:flutter_application_1/screen/movie_details.dart';
+import 'package:flutter_application_1/widgets/auth/auth_model.dart';
 import 'package:flutter_application_1/widgets/auth/auth_widget.dart';
 
 void main() {
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           )),
       routes: {
-        '/auth': (context) => AuthWidget(),
+        '/auth': (context) => AuthProvider(model: AuthModel(),
+        child: AuthWidget()),
         '/main_screen': (context) => MainScreenWidget(),
         'main_screen/movie_details_screen': (context) {
           final arguments = ModalRoute.of(context)?.settings.arguments;

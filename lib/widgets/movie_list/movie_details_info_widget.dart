@@ -52,7 +52,7 @@ class OtherText extends StatelessWidget {
 }
 
 class _MovieNameWidget extends StatelessWidget {
-  const _MovieNameWidget({super.key});
+  const _MovieNameWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class _MovieNameWidget extends StatelessWidget {
 }
 
 class _DataFilmWidget extends StatelessWidget {
-  const _DataFilmWidget({super.key});
+  const _DataFilmWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class _DataFilmWidget extends StatelessWidget {
 }
 
 class _DescriptionWidget extends StatelessWidget {
-  const _DescriptionWidget({super.key});
+  const _DescriptionWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +105,7 @@ class _DescriptionWidget extends StatelessWidget {
 }
 
 class _ScoreWidget extends StatelessWidget {
-  const _ScoreWidget({super.key});
+  const _ScoreWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +165,7 @@ class _ScoreWidget extends StatelessWidget {
 }
 
 class _PeopleWidget extends StatelessWidget {
-  const _PeopleWidget({super.key});
+  const _PeopleWidget();
 
   @override
   Widget build(BuildContext context) {
