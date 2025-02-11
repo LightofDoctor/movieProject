@@ -38,7 +38,7 @@ class _NewsWidgetFreeToWatchState extends State<NewsWidgetFreeToWatch> {
             ],
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 10),
         SizedBox(
           height: 306,
           child: ListView.builder(
@@ -47,7 +47,7 @@ class _NewsWidgetFreeToWatchState extends State<NewsWidgetFreeToWatch> {
             itemExtent: 150,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(7.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -109,7 +109,7 @@ class _NewsWidgetFreeToWatchState extends State<NewsWidgetFreeToWatch> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: EdgeInsets.only(left: 10, top: 3, right: 10),
                       child: Text('Feb 12, 2021'),
                     ),
                   ],

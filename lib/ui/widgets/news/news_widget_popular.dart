@@ -56,7 +56,7 @@ class _NewsWidgetPopularState extends State<NewsWidgetPopular> {
                     Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
+                          padding: const EdgeInsets.only(bottom: 15),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: const Image(
@@ -111,7 +111,7 @@ class _NewsWidgetPopularState extends State<NewsWidgetPopular> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: EdgeInsets.only(left: 10, top: 3, right: 10),
                       child: Text('Feb 12, 2021'),
                     ),
                   ],

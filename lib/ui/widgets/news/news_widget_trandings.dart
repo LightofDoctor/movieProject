@@ -99,7 +99,7 @@ class _NewsWidgetTrandingsState extends State<NewsWidgetTrandings> {
                       ],
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: EdgeInsets.only(left: 10, top: 3, right: 10),
                       child: Text(
                         'Willy`s Wonderland',
                         maxLines: 2,
@@ -109,7 +109,7 @@ class _NewsWidgetTrandingsState extends State<NewsWidgetTrandings> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                      padding: EdgeInsets.only(left: 10, top: 5, right: 5),
                       child: Text('Feb 12, 2021'),
                     ),
                   ],
