@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/auth/auth_model.dart';
+import 'package:flutter_application_1/ui/theme/app_button_style.dart';
+import 'package:flutter_application_1/ui/widgets/auth/auth_model.dart';
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({Key? key}) : super(key: key);
@@ -136,7 +138,7 @@ class _AuthButtonWidget extends StatelessWidget {
     const color = Color(0xFF01B4E4);
     final onPressed =
         model?.canStartAuth == true ? () => model?.auth(context) : null;
-    final child = model?.canStartAuth == true
+    final child = model?.isAuthProgress == true
         ? const SizedBox(
             width: 15,
             height: 15,
