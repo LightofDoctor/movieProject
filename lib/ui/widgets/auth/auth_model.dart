@@ -58,10 +58,9 @@ class AuthModel extends ChangeNotifier {
   }
 }
 
-class AuthProvider extends InheritedNotifier {
-  final AuthModel model;
-
-  const AuthProvider({
+class InheritedNotifierProvider<T extends ChangeNotifier> extends InheritedNotifier<T> {
+  final T model;
+  const InheritedNotifierProvider({
     Key? key,
     required this.model,
     required Widget child,
@@ -70,14 +69,11 @@ class AuthProvider extends InheritedNotifier {
           notifier: model,
           child: child,
         );
-
-  static AuthProvider? watch(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AuthProvider>();
+  static T? watch<T extends ChangeNotifier>(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<InheritedNotifierProvider<T>>()?.model;
   }
-
-  static AuthProvider? read(BuildContext context) {
-    final widget =
-        context.getElementForInheritedWidgetOfExactType<AuthProvider>()?.widget;
-    return widget is AuthProvider ? widget : null;
+  static T? read<T extends ChangeNotifier>(BuildContext context) {
+    final widget = context.getElementForInheritedWidgetOfExactType<InheritedNotifierProvider<T>>()?.widget;
+    return (widget as InheritedNotifierProvider<T>?)?.model;
   }
 }
