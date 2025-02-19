@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier_provider.dart';
 import 'package:flutter_application_1/ui/theme/app_button_style.dart';
 import 'package:flutter_application_1/ui/widgets/auth/auth_model.dart';
 
@@ -148,12 +149,12 @@ class _AuthButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(color),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
-        textStyle: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(color),
+        foregroundColor: WidgetStateProperty.all(Colors.white),
+        textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         ),
-        padding: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(
             horizontal: 15,
             vertical: 8,

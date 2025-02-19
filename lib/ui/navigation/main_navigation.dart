@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier_provider.dart';
 import 'package:flutter_application_1/ui/widgets/auth/auth_model.dart';
 import 'package:flutter_application_1/ui/widgets/auth/auth_widget.dart';
 import 'package:flutter_application_1/ui/widgets/main_screen/main_screen_widget.dart';

@@ -7,6 +7,8 @@ import 'package:flutter_application_1/domain/api_client/api_client.dart';
 import 'package:flutter_application_1/domain/data_providers/session_data_provider.dart';
 import 'package:flutter_application_1/ui/navigation/main_navigation.dart';
 
+
+
 class AuthModel extends ChangeNotifier {
   final _apiClient = ApiClient();
   final _sessionDataProvider = SessionDataProvider();
@@ -39,8 +41,19 @@ class AuthModel extends ChangeNotifier {
         username: login,
         password: password,
       );
-    } catch (e) {
-      _errorMessage = 'Неправильный логин пароль!';
+    } on ApiClientException catch (e) {
+      switch (e.type) {
+        case ApiClientExceptionType.Network:
+          _errorMessage =
+              'Сервер не доступен. Проверте подключение к интернету';
+          break;
+        case ApiClientExceptionType.Auth:
+          _errorMessage = 'Неправильный логин пароль!';
+          break;
+        case ApiClientExceptionType.Other:
+          _errorMessage = 'Произошла ошибка. Попробуйте еще раз';
+          break;
+      }
     }
     _isAuthProgress = false;
     if (_errorMessage != null) {
@@ -54,26 +67,9 @@ class AuthModel extends ChangeNotifier {
       return;
     }
     await _sessionDataProvider.setSessionId(sessionId);
-    unawaited(Navigator.of(context).pushReplacementNamed(MainNavigationRouteNames.mainScreen));
-  }
-}
-
-class InheritedNotifierProvider<T extends ChangeNotifier> extends InheritedNotifier<T> {
-  final T model;
-  const InheritedNotifierProvider({
-    Key? key,
-    required this.model,
-    required Widget child,
-  }) : super(
-          key: key,
-          notifier: model,
-          child: child,
-        );
-  static T? watch<T extends ChangeNotifier>(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<InheritedNotifierProvider<T>>()?.model;
-  }
-  static T? read<T extends ChangeNotifier>(BuildContext context) {
-    final widget = context.getElementForInheritedWidgetOfExactType<InheritedNotifierProvider<T>>()?.widget;
-    return (widget as InheritedNotifierProvider<T>?)?.model;
+    unawaited(
+      Navigator.of(context)
+          .pushReplacementNamed(MainNavigationRouteNames.mainScreen),
+    );
   }
 }
