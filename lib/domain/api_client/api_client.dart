@@ -14,7 +14,7 @@ class ApiClientException implements Exception {
 class ApiClient {
   final _client = HttpClient();
   static const _host = 'https://api.themoviedb.org/3';
-  static const _imageUrl = 'https://image.tmdb.org/t/p/w500';
+  static const imageUrl = 'https://image.tmdb.org/t/p/w500';
   static const _apiKey = '0a2a46b5593a0978cc8e87ba34037430';
 
   Future<String> auth({
@@ -102,11 +102,11 @@ class ApiClient {
     );
     return result;
   }
-  Future<PopularMovieResponse> popularMovie(int page, String locale) async {
+Future<PopularMovieResponse> popularMovie(int page, String locale) async {
     final parser = (dynamic json) {
       final jsonMap = json as Map<String, dynamic>;
-       final response = PopularMovieResponse.fromJson(jsonMap);
-       return response;
+      final response = PopularMovieResponse.fromJson(jsonMap);
+      return response;
     };
     final result = _get(
       '/movie/popular',
@@ -115,9 +115,8 @@ class ApiClient {
         'api_key': _apiKey,
         'page': page.toString(),
         'language': locale,
-
-        
-        },
+   
+      },
     );
     return result;
   }

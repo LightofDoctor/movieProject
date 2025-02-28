@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/domain/data_providers/session_data_provider.dart';
+import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier_provider.dart';
+import 'package:flutter_application_1/ui/widgets/main_screen/main_screen_model.dart';
+import 'package:flutter_application_1/ui/widgets/movie_list/movie_list_model.dart';
 import 'package:flutter_application_1/ui/widgets/movie_list/movie_list_widget.dart';
 import 'package:flutter_application_1/ui/widgets/news/new_widget.dart';
 import 'package:flutter_application_1/ui/widgets/tv_show_list/tv_show_list_widget.dart';
@@ -13,7 +16,9 @@ class MainScreenWidget extends StatefulWidget {
 }
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
+
   int _selectedTab = 0;
+   final movieListModel = MovieListModel();
 
   void onSelectTab(int index) {
     if (_selectedTab == index) return;
@@ -21,9 +26,17 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       _selectedTab = index;
     });
   }
+   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+      movieListModel.loadMovies();
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    final model = InheritedNotifierProvider.read<MainScreenModel>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('TMDB'),
@@ -38,7 +51,9 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
         index: _selectedTab,
         children: [
           const NewsWidget(),
-          MovieListWidget(),
+          InheritedNotifierProvider(model :movieListModel,child: 
+           const MovieListWidget()
+           ),
           TWShowListWidget(),
         ],
       ),
