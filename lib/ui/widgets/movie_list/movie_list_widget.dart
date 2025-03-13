@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/domain/api_client/api_client.dart';
 
 import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier_provider.dart';
 import 'package:flutter_application_1/ui/widgets/movie_list/movie_list_model.dart';
@@ -42,7 +43,9 @@ class MovieListWidget extends StatelessWidget {
                     child: Row(
                       children: [
                        
-                           // ? Image.network(ApiClient.imageUrl,
+                           posterPath != null 
+                           ? Image.network(ApiClient.imgUrl(posterPath),width: 95,)
+                           : SizedBox.shrink(),
                            
                         const SizedBox(width: 15),
                         Expanded(
