@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/domain/api_client/api_client.dart';
 
 import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier_provider.dart';
 import 'package:flutter_application_1/ui/widgets/movie_list/movie_list_model.dart';
+import 'package:intl/intl.dart';
 
 class MovieListWidget extends StatelessWidget {
   const MovieListWidget({Key? key}) : super(key: key);
@@ -22,6 +22,7 @@ class MovieListWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final movie = model.movies[index];
             final posterPath = movie.posterPath;
+            final dateFormat = movie.releaseDate;
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Stack(
@@ -42,11 +43,12 @@ class MovieListWidget extends StatelessWidget {
                     clipBehavior: Clip.hardEdge,
                     child: Row(
                       children: [
-                       
-                           posterPath != null 
-                           ? Image.network(ApiClient.imgUrl(posterPath),width: 95,)
-                           : SizedBox.shrink(),
-                           
+                        posterPath != null
+                            ? Image.network(
+                                ApiClient.imgUrl(posterPath),
+                                width: 95,
+                              )
+                            : SizedBox.shrink(),
                         const SizedBox(width: 15),
                         Expanded(
                           child: Column(
@@ -62,7 +64,9 @@ class MovieListWidget extends StatelessWidget {
                               ),
                               const SizedBox(height: 5),
                               Text(
-                                movie.releaseDate.toString() ?? '542342342',
+                                dateFormat != null
+                                    ? DateFormat.yMMMMd().format(dateFormat)
+                                    : '',
                                 style: const TextStyle(color: Colors.grey),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
