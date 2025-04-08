@@ -20,6 +20,7 @@ class MovieListWidget extends StatelessWidget {
           itemCount: model.movies.length,
           itemExtent: 163,
           itemBuilder: (BuildContext context, int index) {
+            model.showMoviesAtIndex(index);
             final movie = model.movies[index];
             final posterPath = movie.posterPath;
             final dateFormat = movie.releaseDate;
@@ -48,7 +49,7 @@ class MovieListWidget extends StatelessWidget {
                                 ApiClient.imgUrl(posterPath),
                                 width: 95,
                               )
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                         const SizedBox(width: 15),
                         Expanded(
                           child: Column(

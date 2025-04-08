@@ -67,10 +67,10 @@ class _TopPosterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        const Image(image: AssetImage(AppImages.topHeader)),
-        const Positioned(
+        Image(image: AssetImage(AppImages.topHeader)),
+        Positioned(
           top: 20,
           left: 20,
           bottom: 20,
@@ -143,10 +143,10 @@ class _ScoreWidget extends StatelessWidget {
         Container(width: 1, height: 15, color: Colors.grey),
         TextButton(
           onPressed: () {},
-          child: Row(
+          child: const Row(
             children: [
-              const Icon(Icons.play_arrow),
-              const Text('Play Trailer'),
+              Icon(Icons.play_arrow),
+              Text('Play Trailer'),
             ],
           ),
         ),
@@ -194,7 +194,7 @@ class _PeopleWidgets extends StatelessWidget {
       fontSize: 16,
       fontWeight: FontWeight.w400,
     );
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -203,20 +203,20 @@ class _PeopleWidgets extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Stefano Sollima', style: nameStyle),
-                const Text('Director', style: jobTilteStyle),
+                Text('Stefano Sollima', style: nameStyle),
+                Text('Director', style: jobTilteStyle),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Stefano Sollima', style: nameStyle),
-                const Text('Director', style: jobTilteStyle),
+                Text('Stefano Sollima', style: nameStyle),
+                Text('Director', style: jobTilteStyle),
               ],
             )
           ],
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -224,15 +224,15 @@ class _PeopleWidgets extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Stefano Sollima', style: nameStyle),
-                const Text('Director', style: jobTilteStyle),
+                Text('Stefano Sollima', style: nameStyle),
+                Text('Director', style: jobTilteStyle),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Stefano Sollima', style: nameStyle),
-                const Text('Director', style: jobTilteStyle),
+                Text('Stefano Sollima', style: nameStyle),
+                Text('Director', style: jobTilteStyle),
               ],
             )
           ],

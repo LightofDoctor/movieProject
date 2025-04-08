@@ -47,29 +47,29 @@ class MovieDetailsMainScreenCastWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: ClipRRect(
+                      child: const ClipRRect(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(8)),
+                            BorderRadius.all(Radius.circular(8)),
                         clipBehavior: Clip.hardEdge,
                         child: Column(
                           children: [
-                            const Image(image: AssetImage(AppImages.actor)),
+                            Image(image: AssetImage(AppImages.actor)),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
+                                  Text(
                                     'Steven Yeun',
                                     maxLines: 1,
                                   ),
-                                  const SizedBox(height: 7),
-                                  const Text(
+                                  SizedBox(height: 7),
+                                  Text(
                                     'Mark Grayson / Invincible (voice)',
                                     maxLines: 4,
                                   ),
-                                  const SizedBox(height: 7),
-                                  const Text(
+                                  SizedBox(height: 7),
+                                  Text(
                                     '8 Episodes',
                                     maxLines: 1,
                                   ),
