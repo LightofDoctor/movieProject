@@ -123,6 +123,26 @@ Future<PopularMovieResponse> popularMovie(int page, String locale) async {
     return result;
   }
 
+  Future<PopularMovieResponse> searchMovie(int page, String locale, String query) async {
+    final parser = (dynamic json) {
+      final jsonMap = json as Map<String, dynamic>;
+      final response = PopularMovieResponse.fromJson(jsonMap);
+      return response;
+    };
+    final result = _get(
+      '/search/movie',
+      parser,
+      <String, dynamic>{
+        'api_key': _apiKey,
+        'page': page.toString(),
+        'language': locale,
+        'include_adult': true.toString(),
+        'query' : query,
+      },
+    );
+    return result;
+  }
+
   Future<String> _validateUser({
     required String username,
     required String password,

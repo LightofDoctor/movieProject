@@ -26,8 +26,8 @@ class MovieListModel extends ChangeNotifier {
       print(e);
     }
    
-  }
-
+  } 
+   
   void onMovieTap(BuildContext context, int index) {
     final id = _movies[index].id;
     Navigator.of(context).pushNamed(
