@@ -3,6 +3,7 @@ import 'package:flutter_application_1/library/widgets/inherited/inherit_notifier
 import 'package:flutter_application_1/ui/widgets/auth/auth_model.dart';
 import 'package:flutter_application_1/ui/widgets/auth/auth_widget.dart';
 import 'package:flutter_application_1/ui/widgets/main_screen/main_screen_widget.dart';
+import 'package:flutter_application_1/ui/widgets/movie_details/movie_detail_model.dart';
 import 'package:flutter_application_1/ui/widgets/movie_details/movie_details_widget.dart';
 
 abstract class MainNavigationRouteNames {
@@ -29,7 +30,9 @@ class MainNavigation {
         final arguments = settings.arguments;
         final movieId = arguments is int ? arguments : 0;
         return MaterialPageRoute(
-          builder: (context) => MovieDetailsWidget(movieId: movieId),
+          builder: (context) => InheritedNotifierProvider(
+            model: MovieDetailsModel(movieId),
+            child: MovieDetailsWidget(),),
         );
       default:
         const widget = Text('Navigation error!!!');

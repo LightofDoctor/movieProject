@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class InheritedNotifierProvider<T extends ChangeNotifier> extends InheritedNotifier<T> {
   final T model;
-  const InheritedNotifierProvider({
+  const   InheritedNotifierProvider({
     Key? key,
     required this.model,
     required Widget child,
